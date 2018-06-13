@@ -36,6 +36,7 @@ vignettes/*.pdf
 
 .DS_Store
 rmd_beamer.tex
+rmd_beamer.html
 rmd_beamer.pdf
 rmd_beamer_files/
 
