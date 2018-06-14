@@ -1,20 +1,24 @@
 ---
 title: |
-  | R MarkdownとBeamerで
-  | プレゼンテーション資料作成
+  | R Markdown + Beamer
+  | プレゼンテーション資料
 author: "kottn"
 date: '2018-06-13'
 output:
   beamer_presentation:
+    toc: false
     fig_caption: no
     includes:
       in_header: header.tex
     keep_tex: yes
     latex_engine: lualatex
     theme: "metropolis"
-    fonttheme: "structurebold"
     colortheme: "metropolis"
-    highlight: "tango"
+    #theme: "Singapore"
+    #colortheme: "orchid"
+    slide_level: 2
+    fonttheme: "structurebold"
+    highlight: "zenburn"
   slidy_presentation: default
   ioslides_presentation: default
 subtitle: '○○大学'
@@ -26,12 +30,9 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 参考資料
-* https://github.com/ito4303/SappoRoR8
+# はじめに
 
-# 自己紹介
-
-\large
+## 自己紹介
 
 計算工学と災害の研究をしています。
 
@@ -39,7 +40,14 @@ knitr::opts_chunk$set(echo = TRUE)
 * GitHub: https://github.com/kottn
 
 
-# ありがとうぞうさん
+## 参考資料
+
+* https://github.com/ito4303/SappoRoR8
+
+
+
+## ありがとうぞうさん
+
 
 \begin{center}
 \includegraphics[width=6cm]{kazutan_SappoRoR6.png}
@@ -50,19 +58,23 @@ SappoRo.R #6: R Markdownによるスライド生成（前田さん）
 http://kazutan.github.io/SappoRoR6/rmd_slide.html
 
 
-# その後
+## ありがとうぞうさん（２）
 
->- \Large revealjsをためてしてみた。
-    - \Large なかなかよかった。
+## その後
 
->- \Large 次はR Markdown + Beamerでやってみよう。
+>- revealjsをためてしてみた。
+    - なかなかよかった。
 
-# Beamerとは
+>- 次はR Markdown + Beamerでやってみよう。
+
+# 内容
+
+## Beamerとは
 
 \Large
 \LaTeX でプレゼンテーションファイル(PDF)を作成するパッケージ
 
-# R Markdown + Beamer
+## R Markdown + Beamer
 
 RStudioで，R Markdownを新規に作成するときに，
 Beamerでプレゼンテーションファイルを作成するオプションあり。
@@ -72,7 +84,7 @@ Beamerでプレゼンテーションファイルを作成するオプション�
 \end{center}
 
 
-# なぜR Markdown + Beamer
+## なぜR Markdown + Beamer
 
 \LARGE
 RStudioだけで，数式も，Rコードも，  
@@ -80,7 +92,7 @@ RStudioだけで，数式も，Rコードも，
 
 \normalsize
 
-# 用意したもの
+## 用意したもの
 
 \LARGE
 
@@ -88,7 +100,7 @@ RStudioだけで，数式も，Rコードも，
 
 - TeXLive 2017 (MacTeX 2017)
 
-# 使用方法{.fragile}
+## 使用方法{.fragile}
 
 ふつうにR Markdown
 
@@ -103,7 +115,7 @@ RStudioで，下のようにかいていく。
 \end{lstlisting}
 
 
-# yamlヘッダの設定{.fragile}
+## yamlヘッダの設定{.fragile}
 
 \begin{lstlisting}[basicstyle={\footnotesize\ttfamily}]
 title: |
@@ -126,7 +138,7 @@ title中の改行は‘|’をいれる。
 \footnotesize (https://stackoverflow.com/questions/28895109/how-can-i-force-a-line-break-in-rmarkdowns-title)
 
 
-# 欧文フォントの設定{.fragile}
+## 欧文フォントの設定{.fragile}
 
 `in_header`で指定したファイルで設定。
 
@@ -145,7 +157,7 @@ fontencパッケージを使用するようにした。
 呼ばれるが，そうするとupquoteパッケージが有効にならず，コードチャンク中の
 二重引用符が「`"`」ではなく「`”`」になってしまうようだ。
 
-# 日本語フォントの設定{.fragile}
+## 日本語フォントの設定{.fragile}
 
 日本語フォントの設定は欧文フォントとは別になっている。
 
@@ -158,7 +170,7 @@ fontencパッケージを使用するようにした。
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \end{lstlisting}
 
-# luatexjaの設定
+## luatexjaの設定
 
 luatexjaの公式ドキュメントがくわしい（当然）。
 
@@ -169,7 +181,7 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 - http://mirrors.ctan.org/macros/luatex/generic/luatexja/doc/luatexja-ja.pdf
 
 
-# fragile関係のエラー{.fragile}
+## fragile関係のエラー{.fragile}
 
 fancyvrbパッケージのVerbatim環境や，listingsパッケージのlstlisting環境をつかうと，
 \begin{Verbatim}[frame=single,fontsize=\scriptsize]
@@ -192,7 +204,7 @@ fancyvrbパッケージのVerbatim環境や，listingsパッケージのlstlisti
 \end{lstlisting}
 
 
-# 数式{.fragile}
+## 数式{.fragile}
 
 LaTeXなので，数式は問題なし。RStudioではプレビューも表示される。
 
@@ -210,8 +222,7 @@ LaTeXなので，数式は問題なし。RStudioではプレビューも表示�
   \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 \]
 
-
-# Rでグラフ
+## Rでグラフ
 
 Rなので，グラフも。
 
@@ -227,14 +238,14 @@ p <- ggplot(iris, aes(Sepal.Length, Sepal.Width,
 print(p)
 ```
 
-# チャンクでのオプション指定
+## チャンクでのオプション指定
 
 ドキュメントをみる。
 
 - knitr > Chunk options and package options (Yihui Xieさん)
     - https://yihui.name/knitr/options/#plots
 
-# サイズ調整
+## サイズ調整
 
 チャンクオプションで`fig.width=4,fig.height=2.5`と`out.height="5cm"`を指定した。
 ```{r fig_size,fig.width=4,fig.height=2.5,out.height="5cm",echo=TRUE}
@@ -242,7 +253,7 @@ print(p)
 ```
 
 
-# グラフの日本語フォント
+## グラフの日本語フォント
 
 チャンクオプションで， `dev="cairo_pdf"`を指定すると，日本語フォントの
 表示ができる。
@@ -251,12 +262,13 @@ print(p)
 spc <- c("ヒオウギアヤメ", "イリス・ウェルシコロル",
          "イリス・ヴァージニカ")
 p + labs(x = "萼の長さ(cm)", y = "萼の幅(cm)") +
-         scale_colour_discrete(name = "種", labels = spc)
+         scale_colour_discrete(name = "種", labels = spc) +
+         theme_grey(base_family = "NotoSansCJKjp-Regular")
 ```
 
 # まとめ
 
-\Large
+### Conclusion
 
 >- CSSの知識があれば，revealjsの方が楽かも。
 >- でも，なんとかなる。
@@ -264,5 +276,34 @@ p + labs(x = "萼の長さ(cm)", y = "萼の幅(cm)") +
 >- 先人の知恵を活用する。
 >- いったん設定ができてしまえば，あとは楽?
 
+### Feature work
+
+hogehoge
+
+# Thank you!
+    
+# Appendix
+
+## movie
+
+\movie[
+    loop,
+    poster,
+    width=1.0\linewidth,
+    height=0.56\linewidth
+]{Open me more newer Adobe Acrobat PDF viewer}{example.avi}
 
 
+## This is fortran{.fragile}
+    
+\begin{lstlisting}[language=Fortran]
+program hoge
+implicitnone
+integer :: hoge
+hoge = 1
+write(*,*) hoge
+end program hoge
+\end{lstlisting}
+
+
+# EOF
