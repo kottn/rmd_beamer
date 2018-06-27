@@ -1,8 +1,13 @@
 %% PDFメタデータの文字化け防止
 % https://blog.miz-ar.info/2015/09/latex-hyperref-tips/
 % https://tex.stackexchange.com/questions/24445/hyperref-lualatex-and-unicode-bookmarks-issue-garbled-page-numbers-in-ar-for-l
+\usepackage{hyperref}
 \hypersetup{%
-  pdfencoding=auto
+  pdfencoding=auto,
+  setpagesize=false,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  bookmarksopen=true,
 }
 
 %% Fonts
@@ -10,16 +15,17 @@
 \usepackage[sc]{mathpazo}        % mathpazo for mathfont
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-%\usepackage{arev}
 \usepackage[scale=1.0]{tgheros}  % San serif font
 \usepackage[scaled]{beramono}    % Monospace font
 
 %% Japanese font
 \usepackage{luatexja-otf}
-\usepackage[no-math,match,deluxe,expert,ipaex]{luatexja-preset} % IPAexフォント使用
+%\usepackage[match,deluxe,expert,bold,ipaex]{luatexja-preset} % IPAexフォント使用
+%\usepackage[match,deluxe,expert,bold,yu-win10]{luatexja-preset} % 游フォント使用
+\usepackage[match,deluxe,expert,bold,hiragino-pro]{luatexja-preset} % Hiraginoフォント使用
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 
-%
+%%
 %\setbeamerfont{title}{size=\huge, series=\bfseries}
 %\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
 
@@ -44,3 +50,5 @@
   upquote = true
 }
 
+%% For movie
+\usepackage{multimedia}

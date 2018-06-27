@@ -40,5 +40,11 @@ rmd_beamer.html
 rmd_beamer.pdf
 rmd_beamer_files/
 README.html
-header.log
+
+# Intermediate
+*.log
+*.aux
+*.un~
+*.*~
+*.vrb
 
